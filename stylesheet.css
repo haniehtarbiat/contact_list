@@ -1,0 +1,64 @@
+body {
+padding: 0;
+margin:0;
+}
+h2 { 
+padding:1rem 40%;
+color: black;
+
+}
+#Add_contact {
+    box-sizing: border-box;
+width: 50%;
+height:auto;
+background-color:aqua;
+float: left;
+}
+#Add_contact form {
+    width:50%;
+   padding:0rem 25%;
+   margin-bottom: 1rem;
+}
+#container {
+    box-sizing: border-box;
+    width: 50%;
+    height: 50%;
+    background-color: darkgreen;
+    float: left; 
+}
+#search {
+/*display: block;
+height: auto;
+background-color: tomato;
+margin: 1rem 25%;
+/*position: relative;
+top:-13.5rem;*/
+}
+#search form{
+    display: block;
+    height: auto;
+    background-color: tomato;
+    margin:6rem 12% 1rem; 
+}
+#search input {
+    width: 80%;
+    height: auto;
+    background-color: tomato;
+}
+#view_contact_list {
+display: inline-block;
+background-color: blue;
+width:100%;
+}
+.list_of_people {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+}
+.list_of_people li {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding: 10px 0;
+    font-weight: 100;
+    display: block;
+  }
