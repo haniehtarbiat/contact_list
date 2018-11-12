@@ -4,24 +4,23 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="javaScripts.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>contact list</title>
     </head>
     <body>
         <div id="Add_contact" >
           <h2>Add Contact</h2>
-          <form action="/action_page.php">
+          <form name="add_some_one" class="add_some_one">
             <fieldset>
              <legend>Group Name</legend> 
              First name:<br>
-             <input type="text" name="firstname" placeholder="name">
+             <input type="text" name="firstname" placeholder="name" required>
              <br>
              Last name:<br>
-             <input type="text" name="lastname" placeholder="family">
+             <input type="text" name="lastname" placeholder="family" required>
              <br>
              phone number:<br>
-             <input type="tel" name="phone" placeholder="phone number">
+             <input type="tel" name="phone" placeholder="phone number" required>
              <br><br>
              <input type="submit" value="Submit">
             </fieldset>
@@ -29,17 +28,19 @@
         </div>
           <div id="container">
           <div id="search">
-            <form action="/action_page.php">
+            <form name="search_some_one" id="search_some_one">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
           <div id="view_contact_list">
-              <h2>list of people</h2>
-            <ul class="list_of_people">
+              <h3>list of people</h3>
+            <ul class="list_of_People">
+              <li>list of people</li>
             </ul>
           </div>
           <div id="show_search_result"></div>
        </div>
+       <script src="javaScripts.js"></script>
     </body>
 </html>
