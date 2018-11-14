@@ -1,6 +1,5 @@
 let addItems = document.querySelector('.add_some_one');
 let itemsList = document.querySelector('.list_of_People');
-console.log(itemsList);
 let items = [];
 function addItem(e) {
     e.preventDefault();
@@ -15,20 +14,44 @@ function addItem(e) {
     items.push(item);
     contactList(items, itemsList);
     this.reset();
-    console.log(items);
 }
 
 function contactList(items =[], itemsList) {
-    itemsList.innerHTML = items.map((a) => {
+    itemsList.innerHTML = items.map((a,i) => {
       console.log(a.name);
       return `
-      <li> 
-        <label for="">${a.name}</label>
-        <label for="">${a.family}</label>
-         <label for="">${a.phone}</label>
-      </li>
+      <tr>
+      <td>${a.name}</td>
+      <td>${a.family}</td> 
+      <td>${a.phone}</td>
+      <td>
+      <button class="btn"  data-index=${i}><i class="fa fa-trash"></i></button>
+      </td>
+      </tr>
     `;
     }).join('');
   }
   addItems.addEventListener('submit', addItem);
   contactList(items, itemsList);
+  itemsList.addEventListener("click",omit);
+   function omit(e){
+     if (e.target.matches('button')){
+     const el = e.target;
+    const index = el.dataset.index;
+    itemsList.deleteRow(index);
+    items.splice(1,index);
+    contactList(items, itemsList);
+    console.log(index);
+  }
+    else
+    {
+   console.log("plese click again");
+    } 
+ 
+  }
+ /* let but=itemsList.getElementsByTagName("button");
+  console.log (but);
+  itemsList.getElementsByTagName("button").addEventListener("click", function(){
+    alert("hi");
+});*/
+  
