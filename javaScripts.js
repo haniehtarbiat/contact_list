@@ -1,5 +1,6 @@
 let addItems = document.querySelector('.add_some_one');
 let itemsList = document.querySelector('.list_of_People');
+let searchValue=document.querySelector('#search_some_one');
 let items = [];
 function addItem(e) {
     e.preventDefault();
@@ -33,7 +34,7 @@ function contactList(items=[], itemsList) {
   contactList(items, itemsList);
   itemsList.addEventListener("click",omit);
    function omit(e){
-     if (e.target.matches('button')){
+    if (e.target.matches('button')){
     const el = e.target;
     const index = el.dataset.index;
     itemsList.deleteRow(index);
@@ -46,5 +47,33 @@ function contactList(items=[], itemsList) {
    console.log("plese click again");
     } 
   }
- 
+  searchValue.addEventListener('submit',search);
+  function search(e){
+    e.preventDefault();
+    //const str=(this.querySelector('[name=search]')).value;
+    //console.log(str);
+      var input, filter, found, table, tr, td, i, j;
+      input = (this.querySelector('[name=search]').value.toUpperCase());
+      console.log(input);
+      table =itemsList;
+      tr = itemsList.getElementsByTagName("tr");
+      console.log(tr);
+      for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td");
+          console.log(td);
+          for (j = 0; j < td.length-1; j++) {
+              if (td[j].innerHTML.toUpperCase().indexOf(input) > -1) {
+                console.log(td[j].innerHTML.toUpperCase().indexOf(input) > -1);
+                  found = true;
+              }
+          }
+          if (found) {
+              tr[i].style.display = "";
+              found = false;
+          } else {
+              tr[i].style.display = "none";
+          }
+      }
+  
+  }
   
