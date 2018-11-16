@@ -15,10 +15,8 @@ function addItem(e) {
     contactList(items, itemsList);
     this.reset();
 }
-
-function contactList(items =[], itemsList) {
+function contactList(items=[], itemsList) {
     itemsList.innerHTML = items.map((a,i) => {
-      console.log(a.name);
       return `
       <tr>
       <td>${a.name}</td>
@@ -36,22 +34,17 @@ function contactList(items =[], itemsList) {
   itemsList.addEventListener("click",omit);
    function omit(e){
      if (e.target.matches('button')){
-     const el = e.target;
+    const el = e.target;
     const index = el.dataset.index;
     itemsList.deleteRow(index);
-    items.splice(1,index);
-    contactList(items, itemsList);
+    items.splice(index,1);
     console.log(index);
+    contactList(items, itemsList);
   }
     else
     {
    console.log("plese click again");
     } 
- 
   }
- /* let but=itemsList.getElementsByTagName("button");
-  console.log (but);
-  itemsList.getElementsByTagName("button").addEventListener("click", function(){
-    alert("hi");
-});*/
+ 
   
