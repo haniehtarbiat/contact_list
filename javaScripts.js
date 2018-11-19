@@ -30,29 +30,42 @@ function contactList(items=[], itemsList) {
     `;
     }).join('');
   }
-  addItems.addEventListener('submit', addItem);
-  contactList(items, itemsList);
-  itemsList.addEventListener("click",omit);
-   function omit(e){
+addItems.addEventListener('submit', addItem);
+contactList(items, itemsList);
+itemsList.addEventListener("click",omit);
+function omit(e){
     if (e.target.matches('button')){
-    const el = e.target;
-    const index = el.dataset.index;
-    itemsList.deleteRow(index);
-    items.splice(index,1);
-    console.log(index);
-    contactList(items, itemsList);
+     const el = e.target;
+     const index = el.dataset.index;
+     itemsList.deleteRow(index);
+     items.splice(index,1);
+     console.log(index);
+     contactList(items, itemsList);
   }
     else
     {
    console.log("plese click again");
     } 
   }
-  searchValue.addEventListener('submit',search);
-  function search(e){
+searchValue.addEventListener('submit',search);
+function search(e) {
     e.preventDefault();
-    //const str=(this.querySelector('[name=search]')).value;
-    //console.log(str);
-      var input, filter, found, table, tr, td, i, j;
+    var input = (this.querySelector('[name=search]').value.toUpperCase());
+    let i=-1;
+    items.filter(function(elm) {
+        let found = elm.name.toUpperCase().indexOf(input.toUpperCase()) > -1;
+        i++;
+        if (found){  
+            tr = itemsList.getElementsByTagName("tr");
+            tr[i].style.display = "";
+            }else {
+            tr[i].style.display = "none";
+            }  
+    });
+       }
+      /*  function search(e){
+    e.preventDefault();
+    var input, filter, found, table, tr, td, i, j;
       input = (this.querySelector('[name=search]').value.toUpperCase());
       console.log(input);
       table =itemsList;
@@ -73,7 +86,5 @@ function contactList(items=[], itemsList) {
           } else {
               tr[i].style.display = "none";
           }
-      }
-  
-  }
+      }*/
   
